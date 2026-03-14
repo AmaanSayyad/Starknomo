@@ -14,8 +14,8 @@
     }
   ],
   "explorer": "https://sepolia.voyager.online",
-  "frontendUrl": "https://starknomo.vercel.app",
-  "appTradeUrl": "https://starknomo.vercel.app/trade",
-  "backendApi": "https://starknomo.vercel.app/api",
-  "notes": "Starknet-only dApp. Set treasury and RPC in .env. Only deposits and withdrawals hit the chain; bets are settled off-chain via Pyth Hermes."
+  "frontendUrl": "",
+  "appTradeUrl": "",
+  "backendApi": "",
+  "notes": "Starknet-only dApp. Live URL to be added. Set treasury and RPC in .env. Only deposits and withdrawals hit the chain; bets are settled off-chain via Pyth Hermes. GitHub: https://github.com/AmaanSayyad/Starknomo"
 }

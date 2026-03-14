@@ -151,7 +151,7 @@ See [README.md](../README.md#2-environment-variables) and `.env.example` for the
 ### Install & Build
 
 ```bash
-git clone https://github.com/0xamaan-dev/Starknomo.git
+git clone https://github.com/AmaanSayyad/Starknomo.git
 cd Starknomo
 yarn install
 ```
@@ -191,7 +191,7 @@ At minimum, to confirm the app is working:
 
 ### Access
 
-**Production (no setup):** Open [https://starknomo.vercel.app/trade](https://starknomo.vercel.app/trade) in your browser.
+**Production (no setup):** Live app URL: *to be added* (see [README](../README.md) or [docs/EXTRAS.md](EXTRAS.md) for links).
 
 **Local:**
 1. Start the dev server: `yarn dev`
