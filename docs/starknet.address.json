@@ -1,0 +1,21 @@
+{
+  "projectName": "Starknomo",
+  "network": "Starknet Sepolia",
+  "chainId": "0x534e5f5345504f4c4941",
+  "contracts": [
+    {
+      "name": "Treasury",
+      "description": "Starknet Sepolia treasury for STRK deposits and withdrawals. Set via NEXT_PUBLIC_STARKNET_TREASURY_ADDRESS."
+    },
+    {
+      "name": "STRK Token",
+      "address": "0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+      "description": "STRK ERC-20 on Starknet Sepolia (default; override with NEXT_PUBLIC_STRK_TOKEN_ADDRESS)."
+    }
+  ],
+  "explorer": "https://sepolia.voyager.online",
+  "frontendUrl": "https://starknomo.vercel.app",
+  "appTradeUrl": "https://starknomo.vercel.app/trade",
+  "backendApi": "https://starknomo.vercel.app/api",
+  "notes": "Starknet-only dApp. Set treasury and RPC in .env. Only deposits and withdrawals hit the chain; bets are settled off-chain via Pyth Hermes."
+}
