@@ -24,7 +24,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://creditnomo.vercel.app'),
+  metadataBase: new URL('https://starknomo-puce.vercel.app'),
   title: "Starknomo - Binary Options on Starknet",
   description:
     "On-chain binary options trading dApp on Starknet Sepolia. Powered by Pyth Hermes price attestations and Supabase. Oracle-bound resolution, minimal trust.",

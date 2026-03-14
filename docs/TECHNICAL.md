@@ -1,6 +1,6 @@
 # Starknomo Technical — Architecture, Setup & Demo
 
-One place for **how Starknomo works** and how to **run and demo** it quickly. For a deeper contributor guide, see `DEVELOPER_GUIDE.md`.
+One place for **how Starknomo works** and how to **run and demo** it quickly.
 
 ---
 
@@ -94,7 +94,7 @@ sequenceDiagram
 ### Security & Risk Mitigation (Phase 1)
 
 - **Treasury**
-  - Controlled treasury with planned upgrade to multi‑sig + vaults per `ROADMAP.md`.
+  - Controlled treasury with planned upgrade to multi‑sig + vaults (see README [Architecture](README.md#architecture-how-starknomo-scales) and Future sections).
   - Operational limits on withdrawal size and monitoring for anomalies.
 - **Oracle**
   - Pyth Hermes with planned **circuit breakers** for large price deviations.
@@ -121,7 +121,7 @@ Set `NEXT_PUBLIC_STARKNET_TREASURY_ADDRESS`, `NEXT_PUBLIC_STARKNET_SEPOLIA_RPC`,
 
 ## 2. Setup & Run
 
-For full contributor instructions, see `DEVELOPER_GUIDE.md`. This section is the **shortest path** to run the app.
+This section is the **shortest path** to run the app.
 
 ### Prerequisites
 
@@ -191,7 +191,7 @@ At minimum, to confirm the app is working:
 
 ### Access
 
-**Production (no setup):** Live app URL: *to be added* (see [README](../README.md) or [docs/EXTRAS.md](EXTRAS.md) for links).
+**Production (no setup):** Open [https://starknomo-puce.vercel.app/](https://starknomo-puce.vercel.app/) (or [/trade](https://starknomo-puce.vercel.app/trade)) in your browser.
 
 **Local:**
 1. Start the dev server: `yarn dev`
@@ -232,6 +232,6 @@ At minimum, to confirm the app is working:
   - Confirm the wallet is on **Starknet Sepolia**.
   - Check RPC and treasury env vars.
 - **No price data**
-  - Verify Pyth configuration and Hermes endpoints (see `DEVELOPER_GUIDE.md`).
+  - Verify Pyth configuration and Hermes endpoints (see [Pyth Hermes docs](https://docs.pyth.network/price-feeds/hermes)).
 
-For more detailed troubleshooting and production deployment notes, see `DEVELOPER_GUIDE.md` and `README.md`.
+For more detailed troubleshooting and production deployment notes, see `README.md`.

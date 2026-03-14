@@ -52,7 +52,7 @@ This lets users place **sub‑minute, oracle‑settled binary options** with low
 - **UX**: No transaction popups per bet; users get a CEX‑like experience with on‑chain guarantees at deposit/withdraw boundaries.
 - **Safety & future‑proofing**: The design phases toward **multi‑sig and smart‑contract vaults**, plus an insurance fund from protocol fees.
 
-**User journey (short view)** — see `USER_JOURNEY.md` for a full breakdown:
+**User journey (short view)** — see README [How It Works](README.md#how-it-works) and [Flow](README.md#flow) for a full breakdown:
 
 ```mermaid
 flowchart LR
@@ -94,7 +94,7 @@ Adoption strategy (high‑level):
   - Insurance fund
   - Team + community incentives
 - **Referral fees**: Long‑term fee share for referrers.
-- **Future token utility**: Token for fee discounts, governance, and liquidity incentives (see `ROADMAP.md` for full tokenomics).
+- **Future token utility**: Token for fee discounts, governance, and liquidity incentives (see README [Future](README.md#future) and roadmap sections for context).
 
 ---
 
@@ -118,4 +118,4 @@ Adoption strategy (high‑level):
 - Remain **Starknet-only**; no cross-chain expansion — focus on depth and quality on Starknet.
 - Release **institutional APIs** for bots, market‑makers, and partner integrations.
 
-> For a detailed timeline, see `ROADMAP.md`. For a deep technical breakdown and setup instructions, see `docs/TECHNICAL.md` and `DEVELOPER_GUIDE.md`.
+> For a deep technical breakdown and setup instructions, see `docs/TECHNICAL.md` and `README.md`. Roadmap and timeline are in the README (Future, Expansion Roadmap).

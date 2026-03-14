@@ -12,7 +12,7 @@ Powered by **Starknet Sepolia** + **Pyth Hermes** price attestations + **Supabas
 
 *Users and Traders can Trade binary options with oracle-bound resolution and minimal trust.*
 
-**Links:** [GitHub](https://github.com/AmaanSayyad/Starknomo) · [Pitch deck](https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing) · Live app: *to be added* · Demo video: *to be added*
+**Links:** [GitHub](https://github.com/AmaanSayyad/Starknomo) · [Pitch deck](https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing) · [Live app](https://starknomo-puce.vercel.app/) · Demo video: *to be added*
 
 **Treasury (Starknet Sepolia):** For users who connect via **Social Login** (powered by Starkzap), there is no treasury EOA to manage — deposits and withdrawals go through the app. If you use the **normal flow** with a ready wallet (Argent X, Braavos), you can send STRK to the app’s treasury EOA: `0x2b13984f62a6b0bcd9cc312dbec3cdcd7d8a7c25eb5748ce01e394e2f057049`. Set `NEXT_PUBLIC_STARKNET_TREASURY_ADDRESS` in `.env` to this address for the app to recognize it for running locally.
 
@@ -24,7 +24,7 @@ Powered by **Starknet Sepolia** + **Pyth Hermes** price attestations + **Supabas
 |--------|----------|
 | **Core code** | `app/`, `components/`, `lib/`, `supabase/`, `scripts/` — full Next.js app, Starknet integration, Pyth, Supabase |
 | **README** | This file — overview, quick start, tech stack, architecture, getting started |
-| **Architecture & flow (`.md` + Mermaid)** | **README.md** (How It Works, System Architecture, Data Flow, Game Modes) · **docs/TECHNICAL.md** (architecture, setup, demo) · **docs/PROJECT.md** (problem, solution, user journey) · **USER_JOURNEY.md** (onboarding, deposit, Classic/Box, withdrawal, lifecycle) · **DEVELOPER_GUIDE.md** (component diagram, sequence diagram) · **ROADMAP.md** (timeline) |
+| **Architecture & flow (`.md` + Mermaid)** | **README.md** (How It Works, System Architecture, Data Flow, Game Modes) · **docs/TECHNICAL.md** (architecture, setup, demo) · **docs/PROJECT.md** (problem, solution, user journey) |
 
 All architectural and flow diagrams are in Markdown using [Mermaid](https://mermaid.js.org/) (rendered on GitHub). No evaluation materials live outside this repo.
 
@@ -33,12 +33,10 @@ All architectural and flow diagrams are in Markdown using [Mermaid](https://merm
 ## 📚 Documentation
 
 - **[Quick Start](#getting-started)** - Get up and running in 5 minutes
-- **[Developer Guide](./DEVELOPER_GUIDE.md)** - Comprehensive setup and contribution guide
-- **[Roadmap](./ROADMAP.md)** - Product roadmap and milestones
-- **[User Journey](./USER_JOURNEY.md)** - End‑to‑end trader flow and UX
-- **[Dependencies & credits](./DEPENDENCIES.md)** - Open-source dependencies and acknowledgements
-- **[Contributing](./CONTRIBUTING.md)** - How to contribute
-- **[Security](./SECURITY.md)** - Security policy and vulnerability reporting
+- **[Technical guide](./docs/TECHNICAL.md)** - Architecture, setup, and run/demo
+- **Roadmap** — See [Future](#future) and [Expansion Roadmap](#adoption--growth-plan--go‑to‑market) below
+- **[How It Works](#how-it-works)** — End‑to‑end trader flow (connect, deposit, bet, withdraw)
+- **[Key Dependencies & Credits](#key-dependencies--credits)** — Open-source dependencies and acknowledgements
 
 **Open source:** This repository is public and **fork-friendly**. The project is licensed under [MIT](./LICENSE); see the [LICENSE](./LICENSE) file for the full text.
 
@@ -483,8 +481,8 @@ Starknomo is designed for **high-throughput, low-latency** binary options tradin
 
 ## Documentation
 
-- **[Developer Guide](./DEVELOPER_GUIDE.md)** - Full setup and contribution guide
-- **[Roadmap](./ROADMAP.md)** - Product roadmap and milestones
+- **[Technical guide](./docs/TECHNICAL.md)** - Architecture, setup, and run/demo
+- **Roadmap** — See [Future](#future) and [Expansion Roadmap](#adoption--growth-plan--go‑to‑market) below
 
 ---
 

@@ -309,13 +309,13 @@ export default function WaitlistPage() {
                     <div className="text-center mb-14">
                         <div className="text-white/20 font-mono text-[10px] mb-4 uppercase tracking-[0.4em] flex items-center justify-center gap-3">
                             <span className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
-                            Powered by Starkzap
+                            Wallets
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white mb-4 uppercase" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                            Connect your way
+                            Social or extension
                         </h2>
                         <p className="text-white/40 max-w-2xl mx-auto text-sm font-medium uppercase tracking-wider leading-relaxed">
-                            Starkzap brings social login and gasless STRK to Starknomo in minutes.
+                            Starkzap + Cartridge for login; Argent X or Braavos for a classic wallet.
                         </p>
                     </div>
 
@@ -334,7 +334,7 @@ export default function WaitlistPage() {
                             </div>
                             <h3 className="text-lg font-black uppercase tracking-wider text-white mb-3">Social Login</h3>
                             <p className="text-white/50 text-sm font-medium leading-relaxed">
-                                Connect with email, Google, or Discord via Cartridge — no browser extension required. Starkzap powers embedded wallets so you can start trading in one click.
+                                Email, Google, or Discord through Cartridge. No extension — you’re in and trading.
                             </p>
                         </motion.div>
 
@@ -352,15 +352,14 @@ export default function WaitlistPage() {
                             </div>
                             <h3 className="text-lg font-black uppercase tracking-wider text-white mb-3">Gasless STRK</h3>
                             <p className="text-white/50 text-sm font-medium leading-relaxed">
-                                Deposit STRK without paying gas. Starkzap sponsors transfers for social wallets, so your first deposit goes straight to your house balance.
+                                When your account supports it, we sponsor the first deposit. STRK hits your house balance; you don’t pay gas.
                             </p>
                         </motion.div>
                     </div>
 
                     <div className="mt-10 text-center">
-                        <p className="text-white/30 text-xs font-bold uppercase tracking-[0.2em] mb-4">Starkzap — TypeScript SDK for Starknet</p>
                         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                            <a href="https://starkzap.io" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">starkzap.io</a>
+                            <a href="https://starkzap.io" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">Starkzap</a>
                             <span className="text-white/20">·</span>
                             <a href="https://docs.starknet.io/build/starkzap/overview" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">Docs</a>
                             <span className="text-white/20">·</span>
