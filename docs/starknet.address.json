@@ -17,5 +17,5 @@
   "frontendUrl": "https://starknomo-puce.vercel.app",
   "appTradeUrl": "https://starknomo-puce.vercel.app/trade",
   "backendApi": "https://starknomo-puce.vercel.app/api",
-  "notes": "Starknet-only dApp. Set treasury and RPC in .env. Only deposits and withdrawals hit the chain; bets are settled off-chain via Pyth Hermes. GitHub: https://github.com/AmaanSayyad/Starknomo"
+  "notes": "Starknet-only dApp. Live: https://starknomo-puce.vercel.app/trade | GitHub: https://github.com/AmaanSayyad/Starknomo | Deck: https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing. Set treasury and RPC in .env."
 }

@@ -191,7 +191,7 @@ At minimum, to confirm the app is working:
 
 ### Access
 
-**Production (no setup):** Open [https://starknomo-puce.vercel.app/](https://starknomo-puce.vercel.app/) (or [/trade](https://starknomo-puce.vercel.app/trade)) in your browser.
+**Production (no setup):** Open [https://starknomo-puce.vercel.app/trade](https://starknomo-puce.vercel.app/trade) in your browser.
 
 **Local:**
 1. Start the dev server: `yarn dev`
