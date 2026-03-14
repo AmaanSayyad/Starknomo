@@ -1,0 +1,203 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Modal } from '@/components/ui/Modal';
+import { Button } from '@/components/ui/Button';
+import { useStarknomoStore } from '@/lib/store';
+import { useToast } from '@/lib/hooks/useToast';
+import { starknetSepolia, getExplorerTxUrl } from '@/lib/ctc/config';
+import { StarknetClient } from '@/lib/ctc/client';
+import { ExternalLink, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+
+interface DepositModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSuccess?: (amount: number, txHash: string) => void;
+  onError?: (error: string) => void;
+}
+
+type TransactionStatus = 'idle' | 'pending' | 'confirming' | 'confirmed' | 'failed';
+
+export const DepositModal: React.FC<DepositModalProps> = ({
+  isOpen,
+  onClose,
+  onSuccess,
+  onError
+}) => {
+  const [amount, setAmount] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [txStatus, setTxStatus] = useState<TransactionStatus>('idle');
+  const [txHash, setTxHash] = useState<string | null>(null);
+
+  const { walletBalance, refreshWalletBalance, address, fetchBalance, sendTransfer, isSocialWallet } = useStarknomoStore();
+  const toast = useToast();
+
+  const currencySymbol = starknetSepolia.nativeCurrency.symbol;
+  const networkName = starknetSepolia.chainName;
+  const quickAmounts = [0.1, 0.5, 1, 5];
+
+  useEffect(() => {
+    if (!isOpen) {
+      setAmount('');
+      setError(null);
+      setIsLoading(false);
+      setTxStatus('idle');
+      setTxHash(null);
+    }
+  }, [isOpen]);
+
+  const validateAmount = (value: string): string | null => {
+    if (!value || value.trim() === '') return 'Please enter an amount';
+    const numValue = parseFloat(value);
+    if (isNaN(numValue)) return 'Please enter a valid number';
+    if (numValue <= 0) return 'Amount must be greater than zero';
+    if (numValue > walletBalance) return `Insufficient ${currencySymbol} balance`;
+    return null;
+  };
+
+  const handleDeposit = async () => {
+    const validationError = validateAmount(amount);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    if (!address) {
+      setError('Please connect your Starknet wallet');
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      setError(null);
+      setTxStatus('pending');
+
+      const treasuryAddress = starknetSepolia.treasuryAddress;
+      if (!treasuryAddress) throw new Error('Treasury address not configured');
+
+      toast.info('Please confirm the transaction in your Starknet wallet...');
+      const hash = await sendTransfer(treasuryAddress, amount);
+      setTxHash(hash);
+      setTxStatus('confirming');
+
+      const client = new StarknetClient();
+      await client.waitForTransaction(hash);
+
+      setTxStatus('confirmed');
+      await fetchBalance(address);
+      await refreshWalletBalance();
+      toast.success(`Successfully deposited ${parseFloat(amount).toFixed(4)} ${currencySymbol}!`);
+      if (onSuccess) onSuccess(parseFloat(amount), hash);
+      onClose();
+    } catch (err: any) {
+      console.error('Deposit error:', err);
+      const errorMessage = err.message || 'Failed to deposit funds';
+      setError(errorMessage);
+      setTxStatus('failed');
+      toast.error(errorMessage);
+      if (onError) onError(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={`Deposit ${currencySymbol}`}
+      showCloseButton={!isLoading}
+    >
+      <div className="space-y-4">
+        <div className="bg-gradient-to-br from-[#00f5ff]/10 to-purple-500/10 border border-[#00f5ff]/30 rounded-lg p-3 relative overflow-hidden">
+          <div className="absolute top-0 right-0 px-2 py-0.5 bg-[#00f5ff]/20 text-[#00f5ff] text-[8px] font-bold uppercase tracking-tighter rounded-bl-lg">
+            {networkName}
+          </div>
+          <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1 font-mono">Wallet Balance</p>
+          <p className="text-[#00f5ff] text-xl font-bold font-mono flex items-center gap-2">
+            <img src="/logos/starknet-token-strk-logo.svg" alt="STRK" className="w-5 h-5 rounded-sm" />
+            {walletBalance.toFixed(4)} {currencySymbol}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between bg-black/30 border border-white/10 rounded-lg px-3 py-2">
+          <span className="text-[10px] uppercase tracking-wider text-gray-400 font-mono">Gas Mode</span>
+          <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${isSocialWallet ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'}`}>
+            {isSocialWallet ? 'Sponsored' : 'User Pays'}
+          </span>
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="deposit-amount" className="text-gray-400 text-xs font-mono uppercase">Amount to Deposit</label>
+          <div className="relative">
+            <input
+              id="deposit-amount"
+              type="text"
+              value={amount}
+              onChange={(e) => {
+                const v = e.target.value;
+                if (v === '' || /^\d*\.?\d*$/.test(v)) setAmount(v); setError(null);
+              }}
+              placeholder="0.00"
+              disabled={isLoading}
+              className={`w-full px-4 py-3 bg-black/50 border rounded-lg text-lg text-white font-mono focus:outline-none focus:ring-1 focus:ring-[#00f5ff] disabled:opacity-50 disabled:cursor-not-allowed ${error ? 'border-red-500' : 'border-[#00f5ff]/30'}`}
+            />
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-mono">{currencySymbol}</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-4 gap-2">
+          {quickAmounts.map((q) => (
+            <button
+              key={q}
+              onClick={() => { setAmount(q.toString()); setError(null); }}
+              disabled={isLoading}
+              className={`px-2 py-2 rounded border font-mono text-xs transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${amount === q.toString() ? 'bg-[#00f5ff]/20 border-[#00f5ff] text-[#00f5ff] shadow-[0_0_10px_rgba(0,245,255,0.3)]' : 'bg-black/30 border-[#00f5ff]/30 text-gray-300 hover:border-[#00f5ff] hover:text-[#00f5ff]'}`}
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+
+        {txHash && (
+          <a
+            href={getExplorerTxUrl(txHash)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#00f5ff] hover:text-cyan-400 flex items-center gap-1"
+          >
+            View on Explorer <ExternalLink className="w-3 h-3" />
+          </a>
+        )}
+
+        {error && (
+          <div className="bg-red-900/20 border border-red-500 rounded-lg px-3 py-2">
+            <p className="text-red-400 text-xs font-mono">{error}</p>
+          </div>
+        )}
+
+        <div className="flex items-center gap-3 text-xs text-gray-400">
+          {txStatus === 'pending' && <Loader2 className="w-4 h-4 animate-spin" />}
+          {txStatus === 'confirming' && <Loader2 className="w-4 h-4 animate-spin" />}
+          {txStatus === 'confirmed' && <CheckCircle className="w-4 h-4 text-green-400" />}
+          {txStatus === 'failed' && <XCircle className="w-4 h-4 text-red-400" />}
+          <span>{txStatus === 'idle' ? 'Ready' : txStatus}</span>
+        </div>
+
+        <div className="flex gap-3 pt-2">
+          <Button onClick={onClose} variant="secondary" className="flex-1" disabled={isLoading}>Cancel</Button>
+          <Button
+            onClick={handleDeposit}
+            variant="primary"
+            className="flex-1"
+            disabled={isLoading || !amount || parseFloat(amount || '0') <= 0}
+          >
+            {isLoading ? 'Processing' : `Deposit ${currencySymbol}`}
+          </Button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+
