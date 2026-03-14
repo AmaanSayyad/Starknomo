@@ -12,7 +12,12 @@ Powered by **Starknet Sepolia** + **Pyth Hermes** price attestations + **Supabas
 
 *Users and Traders can Trade binary options with oracle-bound resolution and minimal trust.*
 
-**Links:** [GitHub](https://github.com/AmaanSayyad/Starknomo) · [Pitch deck](https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing) · [Live app](https://starknomo-puce.vercel.app/trade) · Demo video: *to be added*
+| Link | URL |
+|------|-----|
+| **GitHub** | [https://github.com/AmaanSayyad/Starknomo](https://github.com/AmaanSayyad/Starknomo) |
+| **Pitch deck** | [https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing](https://docs.google.com/presentation/d/1xZWBd89C8WzgLBB_WX8ySgGh5mZ2Czrd3w5mTWtACOQ/edit?usp=sharing) |
+| **Live app** | [https://starknomo-puce.vercel.app/trade](https://starknomo-puce.vercel.app/trade) |
+| **Demo video** | *to be added* |
 
 **Treasury (Starknet Sepolia):** For users who connect via **Social Login** (powered by Starkzap), there is no treasury EOA to manage — deposits and withdrawals go through the app. If you use the **normal flow** with a ready wallet (Argent X, Braavos), you can send STRK to the app’s treasury EOA: `0x2b13984f62a6b0bcd9cc312dbec3cdcd7d8a7c25eb5748ce01e394e2f057049`. Set `NEXT_PUBLIC_STARKNET_TREASURY_ADDRESS` in `.env` to this address for the app to recognize it for running locally.
 
