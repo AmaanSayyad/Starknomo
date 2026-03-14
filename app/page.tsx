@@ -308,7 +308,7 @@ export default function WaitlistPage() {
                 <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                     <div className="text-center mb-14">
                         <div className="text-white/20 font-mono text-[10px] mb-4 uppercase tracking-[0.4em] flex items-center justify-center gap-3">
-                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                            <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
                             Wallets
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white mb-4 uppercase" style={{ fontFamily: 'var(--font-orbitron)' }}>
@@ -325,10 +325,10 @@ export default function WaitlistPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/30 transition-colors"
+                            className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/30 transition-colors"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5 border border-amber-500/20">
-                                <svg className="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5 border border-purple-500/20">
+                                <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                                 </svg>
                             </div>
@@ -343,10 +343,10 @@ export default function WaitlistPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/30 transition-colors"
+                            className="p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/30 transition-colors"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5 border border-amber-500/20">
-                                <svg className="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5 border border-purple-500/20">
+                                <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
@@ -359,15 +359,15 @@ export default function WaitlistPage() {
 
                     <div className="mt-10 text-center">
                         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                            <a href="https://starkzap.io" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">Starkzap</a>
+                            <a href="https://starkzap.io" target="_blank" rel="noopener noreferrer" className="text-purple-400/80 hover:text-purple-400 text-sm font-bold uppercase tracking-wider transition-colors">Starkzap</a>
                             <span className="text-white/20">·</span>
-                            <a href="https://docs.starknet.io/build/starkzap/overview" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">Docs</a>
+                            <a href="https://docs.starknet.io/build/starkzap/overview" target="_blank" rel="noopener noreferrer" className="text-purple-400/80 hover:text-purple-400 text-sm font-bold uppercase tracking-wider transition-colors">Docs</a>
                             <span className="text-white/20">·</span>
-                            <a href="https://github.com/keep-starknet-strange/starkzap" target="_blank" rel="noopener noreferrer" className="text-amber-400/80 hover:text-amber-400 text-sm font-bold uppercase tracking-wider transition-colors">GitHub</a>
+                            <a href="https://github.com/keep-starknet-strange/starkzap" target="_blank" rel="noopener noreferrer" className="text-purple-400/80 hover:text-purple-400 text-sm font-bold uppercase tracking-wider transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-amber-600/5 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-purple-600/5 rounded-full blur-[80px] pointer-events-none" />
             </section>
 
             {/* TESTIMONIALS SECTION */}
